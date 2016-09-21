@@ -2,13 +2,13 @@
 <html lang="en" ng-app="clockApp">
     <head>
         <meta charset="utf-8">
-        <title>WikipediaViewer</title>
+        <title>PomodoroClock</title>
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <script src="https://code.angularjs.org/1.5.8/angular.min.js"></script>
         <script src="app.js"></script>
         <script src="clock-controller.js"></script>
         <!--<link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet">-->
-        <!--<link rel="stylesheet" href="css/style.css">-->
+        <link rel="stylesheet" href="style.css">
     </head>
 
     <body>
@@ -17,10 +17,23 @@
         </header>
 
         <main>
-            <div ng-controller="clockController as clock">
+            <div ng-controller="ClockController as clock">
 
+                <div>
+                    <span class="clock-ctrl" ng-click="changeSessionTime('minus')">-</span>
+                    <span>{{ sessionTime }}</span>
+                    <span class="clock-ctrl" ng-click="changeSessionTime('plus')">+</span>
+                </div>
+                <div>
+                    <span class="clock-ctrl" ng-click="changeBreakTime('minus')">-</span>
+                    <span>{{ breakTime }}</span>
+                    <span class="clock-ctrl" ng-click="changeBreakTime('plus')">+</span>
+                </div>
 
-
+                <div class="counter">
+                    <div>{{ sessionTime}}</div>
+                    <div>{{ breakTime}}</div>
+                </div>
             </div> <!-- end of div.ClockController -->
         </main>
         <footer>
