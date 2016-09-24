@@ -8,7 +8,7 @@
         <script src="app.js"></script>
         <script src="clock-controller.js"></script>
         <!--<link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet">-->
-        <link rel="stylesheet" href="style.css">
+        <link rel="stylesheet" href="css/style.css">
     </head>
 
     <body>
@@ -20,11 +20,13 @@
             <div ng-controller="ClockController as clock">
 
                 <div>
+                    Session length
                     <span class="clock-ctrl" ng-click="changeSessionTime('minus')">-</span>
                     <span>{{ sessionTime }}</span>
                     <span class="clock-ctrl" ng-click="changeSessionTime('plus')">+</span>
                 </div>
                 <div>
+                    Break length
                     <span class="clock-ctrl" ng-click="changeBreakTime('minus')">-</span>
                     <span>{{ breakTime }}</span>
                     <span class="clock-ctrl" ng-click="changeBreakTime('plus')">+</span>
@@ -38,6 +40,25 @@
                 <button type="button" ng-click="startCounting()">Start</button>
                 <button type="button" ng-click="stopCounting()">Pause</button>
                 <button type="button" ng-click="resetCounting()">Reset</button>
+
+                <div>
+                    <div class="line-container">
+                        <div ng-show="showSession" class="session-line" style="height: {{ sessionPercentage }}%;"></div>
+                        <div ng-show="!showSession" class="break-line" style="height: {{ breakPercentage }}%;"></div>
+                    </div>
+
+                    <div class="laptop">
+                        <div class="laptop-monitor">
+                            <div class="laptop-webcam"></div>
+                            <p class="laptop-logo">NikokoPro</p>
+
+                            <div class="laptop-screen">
+                                
+                            </div>
+                        </div>
+                        <div class="laptop-keyboard"></div>
+                    </div>
+                </div>
             </div> <!-- end of div.ClockController -->
         </main>
         <footer>
